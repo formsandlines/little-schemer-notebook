@@ -1,38 +1,38 @@
 
 ;; Chapter 7
 
-(define (oset?-draft1 lat)
+(define (-set?-draft1 lat)
   (lambda (aux set lat)
     (cond ((null? lat) #t)
           (else (and (not-contains? (car lat) set)
                      (aux (cons (car lat) set)
                           (cdr lat)))))))
 
-(define (oset?-draft2 lat)
+(define (-set?-draft2 lat)
   (cond ((null? lat) #t)
         (else (and (= 1 (occur (car lat) lat))
-                   (oset?-draft2 (cdr lat))))))
+                   (-set?-draft2 (cdr lat))))))
 
-(define (oset?-draft3 lat)
+(define (-set?-draft3 lat)
   (cond ((null? lat) #t)
         (else (and (eq? #f (member? (car lat) (cdr lat)))
-                   (oset?-draft3 (cdr lat))))))
+                   (-set?-draft3 (cdr lat))))))
 
-(define (oset? lat)
+(define (-set? lat)
   (cond ((null? lat) #t)
         ((member? (car lat) (cdr lat)) #f)
-        (else (oset? (cdr lat)))))
+        (else (-set? (cdr lat)))))
 
-(eq? (oset? '(apple peaches apple plum))
+(eq? (-set? '(apple peaches apple plum))
      #f)
 
-(eq? (oset? '(apples peaches pears plums))
+(eq? (-set? '(apples peaches pears plums))
      #t)
 
-(eq? (oset? '())
+(eq? (-set? '())
      #t)
 
-(eq? (oset? '(apple 3 pear 4 9 apple 3 4))
+(eq? (-set? '(apple 3 pear 4 9 apple 3 4))
      #f)
 
 (define (makeset-alt1 lat)

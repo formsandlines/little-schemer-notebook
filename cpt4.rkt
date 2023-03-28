@@ -203,12 +203,12 @@
    (quotient 15 4)
    3)
 
-(define (olength lat)
+(define (-length lat)
   (cond ((null? lat) 0)
-        (else (add1 (olength (cdr lat))))))
+        (else (add1 (-length (cdr lat))))))
 
-(olength '(hotdogs with mustard sauerkraut and pickles))
-(olength '(ham and cheese on rye))
+(-length '(hotdogs with mustard sauerkraut and pickles))
+(-length '(ham and cheese on rye))
 
 (define (pick n lat)
   (cond ((zero? (sub1 n)) (car lat))
@@ -227,11 +227,11 @@
 (equal? (rempick-draft 3 '(hotdogs with hot mustard))
         '(hotdogs with mustard))
 
-(define (onumber? x)
+(define (-number? x)
   (cond ((zero? x) #t)
-        (else (onumber? (sub1 x)))))
+        (else (-number? (sub1 x)))))
 
-;; (onumber? 'tomato) ;; not defined -> onumber is primitive function
+;; (-number? 'tomato) ;; not defined -> onumber is primitive function
 
 (define (no-nums lat)
   (cond ((null? lat) '())

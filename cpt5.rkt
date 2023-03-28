@@ -231,7 +231,7 @@
 (eq? (eqlist?-draft1 '(strawberry ice cream) '(strawberry ice cream))
      #t)
 
-(define (oequal? s1 s2)
+(define (-equal? s1 s2)
   (cond ((and (atom? s1)
               (atom? s2)) (eqan? s1 s2))
         ((or (atom? s1)
@@ -243,7 +243,7 @@
               (null? l2)) #t)
         ((or (null? l1)
              (null? l2)) #f)
-        (else (and (oequal? (car l1) (car l2))
+        (else (and (-equal? (car l1) (car l2))
                    (eqlist? (cdr l1) (cdr l2))))))
 
 (eq? (eqlist? '(strawberry ice cream) '(strawberry ice cream))
@@ -253,13 +253,13 @@
 
 (define (rember s l)
   (cond ((null? l) '())
-        ((oequal? s (car l)) (cdr l))
+        ((-equal? s (car l)) (cdr l))
         (else (cons (car l)
                     (rember s (cdr l))))))
 
 (define (rember* s l)
   (cond ((null? l) '())
-        ((oequal? s (car l)) (rember* s (cdr l)))
+        ((-equal? s (car l)) (rember* s (cdr l)))
         ((atom? (car l)) (cons (car l)
                                (rember* s (cdr l))))
         (else (cons (rember* s (car l))
