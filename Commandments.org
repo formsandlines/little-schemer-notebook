@@ -15,48 +15,16 @@ When recurring on a /list of S-expressions/, ~l~, ask 3 questions about it:
 2. ~(atom? (car l))~
 3. ~else~
 
-** Drafts
-/(preliminary from [[file:cpt2.rkt][Chapter 2]])/
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The First Commandment* (preliminary)                                      ;;
-;;                                                                            ;;
-;; Always ask `null?` as the first question in expressing any function.       ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-/(first revision from [[file:cpt4.rkt][Chapter 4]])/
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The First Commandment* (first revision)                                   ;;
-;;                                                                            ;;
-;; When recurring on a list of atoms, `lat`, ask two questions about it:      ;;
-;; `(null? lat)` and `else`.                                                  ;;
-;; When recurring on a number, `n`, ask two questions about it:               ;;
-;; `(zero? n)` and `else`.                                                    ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 * The Second Commandment
-
-** Drafts
 /(first draft from [[file:cpt3.rkt][Chapter 3]])/
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The Second Commandment*                                                   ;;
-;;                                                                            ;;
-;; Use `cons` to build lists.                                                 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Use ~cons~ to *build lists*.
 
 * The Third Commandment
-
-** Drafts
 /(first draft from [[file:cpt3.rkt][Chapter 3]])/
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The Third Commandment*                                                    ;;
-;;                                                                            ;;
-;; When building a list, describe the first typical element,                  ;;
-;; and then `cons` it onto the natural recursion.                             ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+When building a list, describe the *first typical element*, and then ~cons~ it
+onto the /natural recursion/.
 
 * The Fourth Commandment
 /(final version from [[file:cpt5.rkt][Chapter 5]])/
@@ -72,46 +40,17 @@ tested in the *termination condition*:
 - when using ~cdr~, test termination with ~null?~
 - when using ~sub1~, test termination with ~zero?~
 
-** Drafts
-/(preliminary from [[file:cpt3.rkt][Chapter 3]])/
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The Fourth Commandment*                                                 ;;
-;;      (preliminary)                                                         ;;
-;; Always change at least one argument while recurring. It must be changed    ;;
-;; to be closer to termination. The changing argument must be tested in the   ;;
-;; termination condition: when using `cdr`, test termination with `null?`.    ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-/(first revision from [[file:cpt4.rkt][Chapter 4]])/
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The Fourth Commandment* (first revision)                                ;;
-;;                                                                            ;;
-;; Always change at least one argument while recurring. It must be changed    ;;
-;; to be closer to termination. The changing argument must be tested in the   ;;
-;; termination condition:                                                     ;;
-;; when using `cdr`, test termination with `null?` and                        ;;
-;; when using `sub1`, test termination with `zero?`.                          ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 * The Fifth Commandment
-
-** Drafts
 /(first draft from [[file:cpt4.rkt][Chapter 4]])/
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;   *The Fifth Commandment*                                                    ;;
-;;                                                                            ;;
-;; When building a value with `+`, always use 0 for the value of the          ;;
-;; terminating line, for adding 0 does not change the value of an addition.   ;;
-;; When building a value with `×`, always use 1 for the value of the          ;;
-;; terminating line, for multiplying by 1 does not change the value of a      ;;
-;; multiplication.                                                            ;;
-;; When building a value with `cons`, always use `()` for the value of the    ;;
-;; terminating line.                                                          ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+When building a value with ~+~ , always use ~0~ for the value of the *terminating
+line*, for adding ~0~ does not change the value of an /addition/.
 
+When building a value with ~×~ , always use ~1~ for the value of the *terminating
+line*, for multiplying by ~1~ does not change the value of a /multiplication/.
+
+When building a value with ~cons~ , always use ~()~ for the value of the
+*terminating line*.
 
 * The Sixth Commandment
 /(first draft from [[file:cpt5.rkt][Chapter 5]])/
@@ -129,3 +68,13 @@ Recur on the *subparts* that are of the /same nature/:
 /(first draft from [[file:cpt6.rkt][Chapter 6]])/
 
 Use *help functions* to /abstract/ from representations.
+
+* The Ninth Commandment
+/(first draft from [[file:cpt8.rkt][Chapter 8]])/
+
+*Abstract common patterns* with a new function.
+
+* The Tenth Commandment
+/(first draft from [[file:cpt8.rkt][Chapter 8]])/
+
+*Build functions* to collect more than one value at a time.

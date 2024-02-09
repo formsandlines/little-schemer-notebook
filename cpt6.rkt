@@ -1,3 +1,4 @@
+;; -*- geiser-scheme-implementation: racket -*-
 
 ;; Chapter 6
 
@@ -98,16 +99,16 @@
 (define (2nd-sub-exp aexp)
   (car (cdr (cdr aexp))))
 
-(define (value-pre nexp)
+(define (value nexp)
   (cond ((atom? nexp) nexp)
-        ((eq? (operator nexp) '+) (o+ (value-pre (1st-sub-exp nexp))
-                                      (value-pre (2nd-sub-exp nexp))))
-        ((eq? (operator nexp) '×) (× (value-pre (1st-sub-exp nexp))
-                                     (value-pre (2nd-sub-exp nexp))))
-        (else (↑ (value-pre (1st-sub-exp nexp))
-                 (value-pre (2nd-sub-exp nexp))))))
+        ((eq? (operator nexp) '+) (o+ (value (1st-sub-exp nexp))
+                                      (value (2nd-sub-exp nexp))))
+        ((eq? (operator nexp) '×) (× (value (1st-sub-exp nexp))
+                                     (value (2nd-sub-exp nexp))))
+        (else (↑ (value (1st-sub-exp nexp))
+                 (value (2nd-sub-exp nexp))))))
 
-(= (value-pre '(+ 1 (↑ 3 4)))
+(= (value '(+ 1 (↑ 3 4)))
    82)
 
 (define (value-sexp nexp)
@@ -115,6 +116,8 @@
 
 (= (value-sexp '(+ 1 (↑ 3 4)))
    82)
+
+; [[file:Commandments.org::*The Eighth Commandment][The Eighth Commandment (first draft)]]
 
 ;; Different representation of numbers:
 ;; (() () () ())

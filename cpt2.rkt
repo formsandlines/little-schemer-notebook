@@ -1,3 +1,4 @@
+;; -*- geiser-scheme-implementation: racket -*-
 
 ;; Chapter 2
 
@@ -41,4 +42,3 @@
 (member? 'meat '(mashed potatoes and meat gravy))
 
 (member? 'liver '())
-
